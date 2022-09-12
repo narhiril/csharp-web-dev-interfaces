@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace IceCreamShop
 {
@@ -16,9 +17,36 @@ namespace IceCreamShop
             Allergens = allergens;
         }
 
+        /*
         public override string ToString()
         {
             return "Name: " + Name + "\n" + "Cost: $" + Cost + "\n" + "Allergens: " + Allergens + "\n";
+        }
+        */
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            string allergenStr;
+            if (Allergens.Count > 0)
+            {
+                sb.Append("(Allergens: ");
+                foreach (var item in Allergens)
+                {
+                    sb.Append($"{item}, ");
+                }
+                sb.Remove(sb.Length - 2, 2);
+                sb.Append(")");
+                allergenStr = sb.ToString();
+                sb.Clear();
+                sb.AppendFormat("{0,-30} {1,-10:C2}\n{2,-50}", Name, Cost, allergenStr);
+            }
+            else
+            {
+                sb.AppendFormat("{0,-30} {1,-10:C2}", Name, Cost);
+            }
+            sb.Append(Environment.NewLine);
+            return sb.ToString();
         }
     }
 }

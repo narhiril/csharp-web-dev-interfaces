@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace IceCreamShop
 {
@@ -31,6 +32,23 @@ namespace IceCreamShop
             Flavors.Add(flavor3);
             Flavors.Add(flavor4);
             Flavors.Add(flavor5);
-        } 
+
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Cones:" + Environment.NewLine);
+            foreach(Cone cone in Cones)
+            {
+                sb.AppendLine(cone.ToString());
+            }
+            sb.AppendLine("Flavors:" + Environment.NewLine);
+            foreach(Flavor flavor in Flavors)
+            {
+                sb.AppendLine(flavor.ToString());
+            }
+            return sb.ToString();
+        }
     }
 }
