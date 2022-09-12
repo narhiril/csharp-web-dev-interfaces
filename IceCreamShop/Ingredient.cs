@@ -27,9 +27,9 @@ namespace IceCreamShop
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            string allergenStr;
             if (Allergens.Count > 0)
             {
+                string allergenStr;
                 sb.Append("(Allergens: ");
                 foreach (var item in Allergens)
                 {
