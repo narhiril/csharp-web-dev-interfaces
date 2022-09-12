@@ -29,7 +29,6 @@ namespace IceCreamShop
             StringBuilder sb = new StringBuilder();
             if (Allergens.Count > 0)
             {
-                string allergenStr;
                 sb.Append("(Allergens: ");
                 foreach (var item in Allergens)
                 {
@@ -37,7 +36,7 @@ namespace IceCreamShop
                 }
                 sb.Remove(sb.Length - 2, 2);
                 sb.Append(")");
-                allergenStr = sb.ToString();
+                string allergenStr = sb.ToString();
                 sb.Clear();
                 sb.AppendFormat("{0,-30} {1,-10:C2}\n{2,-50}", Name, Cost, allergenStr);
             }
